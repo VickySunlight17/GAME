@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабиринт игра</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/game_field.css">
+</head>
+
+<body>
+
+
+    <div class="actions">
+        <p class="actions__text">ДЕЙСТВИЯ:</p>
+
+        <button id="movePlayer" class="actions__btn" type="button">Переместиться</button>
+        <button id="shoot" class="actions__btn" type="button">Выстрелить</button>
+        <button id="makeWall" class="actions__btn" type="button">Поставить стену</button>
+        <button id="destroyWall" class="actions__btn" type="button">Разрушить стену</button>
+
+
+
+
+    </div>
+    <!-- <div class="game_field">
+        <div class="game_field__horisontal_walls">
+            <div class="game_field__horisontal_wall"> </div>
+            <div class="game_field__horisontal_wall"> </div>
+            <div class="game_field__horisontal_wall"> </div>
+            <div class="game_field__horisontal_wall"> </div>
+            <div class="game_field__horisontal_wall"> </div>
+
+        </div>
+
+        <div class="game_field__horisontal_walls">
+            <div class="game_field__row__vertical_wall"></div>
+            <div id="cell1" class="game_field__row__cell"></div>
+
+            <div class="game_field__row__vertical_wall"></div>
+            <div id="cell2" class="game_field__row__cell"></div>
+
+            <div class="game_field__row__vertical_wall"></div>
+            <div id="cell3" class="game_field__row__cell"></div>
+
+            <div class="game_field__row__vertical_wall"></div>
+            <div id="cell4" class="game_field__row__cell"></div>
+
+            <div class="game_field__row__vertical_wall"></div>
+            <div id="cell5" class="game_field__row__cell"></div>
+
+            <div class="game_field__row__vertical_wall"></div>
+
+        </div>
+
+        <div class="game_field__horisontal_walls">
+            <div class="game_field__horisontal_wall"> </div>
+            <div class="game_field__horisontal_wall"> </div>
+            <div class="game_field__horisontal_wall"> </div>
+            <div class="game_field__horisontal_wall"> </div>
+            <div class="game_field__horisontal_wall"> </div>
+
+        </div>
+
+        <div class="game_field__horisontal_walls">
+            <div class="game_field__row__vertical_wall"></div>
+            <div class="game_field__row__cell"></div>
+
+            <div class="game_field__row__vertical_wall"></div>
+            <div class="game_field__row__cell"></div>
+
+            <div class="game_field__row__vertical_wall"></div>
+            <div class="game_field__row__cell"></div>
+
+            <div class="game_field__row__vertical_wall"></div>
+            <div class="game_field__row__cell"></div>
+
+            <div class="game_field__row__vertical_wall"></div>
+            <div class="game_field__row__cell"></div>
+
+            <div class="game_field__row__vertical_wall"></div>
+
+        </div>
+
+        <div class="game_field__horisontal_walls">
+            <div class="game_field__horisontal_wall"> </div>
+            <div class="game_field__horisontal_wall"> </div>
+            <div class="game_field__horisontal_wall"> </div>
+            <div class="game_field__horisontal_wall"> </div>
+            <div class="game_field__horisontal_wall"> </div>
+
+        </div>
+
+        <div class="game_field__horisontal_walls">
+            <div class="game_field__row__vertical_wall"></div>
+            <div class="game_field__row__cell"></div>
+
+            <div class="game_field__row__vertical_wall"></div>
+            <div class="game_field__row__cell"></div>
+
+            <div class="game_field__row__vertical_wall"></div>
+            <div class="game_field__row__cell"></div>
+
+            <div class="game_field__row__vertical_wall"></div>
+            <div class="game_field__row__cell"></div>
+
+            <div class="game_field__row__vertical_wall"></div>
+            <div class="game_field__row__cell"></div>
+
+            <div class="game_field__row__vertical_wall"></div>
+
+        </div>
+
+        <div class="game_field__horisontal_walls">
+            <div class="game_field__horisontal_wall"> </div>
+            <div class="game_field__horisontal_wall"> </div>
+            <div class="game_field__horisontal_wall"> </div>
+            <div class="game_field__horisontal_wall"> </div>
+            <div class="game_field__horisontal_wall"> </div>
+
+        </div>
+
+        <div class="game_field__horisontal_walls">
+            <div class="game_field__row__vertical_wall"></div>
+            <div class="game_field__row__cell"></div>
+
+            <div class="game_field__row__vertical_wall"></div>
+            <div class="game_field__row__cell"></div>
+
+            <div class="game_field__row__vertical_wall"></div>
+            <div class="game_field__row__cell"></div>
+
+            <div class="game_field__row__vertical_wall"></div>
+            <div class="game_field__row__cell"></div>
+
+            <div class="game_field__row__vertical_wall"></div>
+            <div class="game_field__row__cell"></div>
+
+            <div class="game_field__row__vertical_wall"></div>
+
+        </div>
+
+        <div class="game_field__horisontal_walls">
+            <div class="game_field__horisontal_wall"> </div>
+            <div class="game_field__horisontal_wall"> </div>
+            <div class="game_field__horisontal_wall"> </div>
+            <div class="game_field__horisontal_wall"> </div>
+            <div class="game_field__horisontal_wall"> </div>
+
+        </div>
+
+        <div class="game_field__horisontal_walls">
+            <div class="game_field__row__vertical_wall"></div>
+            <div class="game_field__row__cell"></div>
+
+            <div class="game_field__row__vertical_wall"></div>
+            <div class="game_field__row__cell"></div>
+
+            <div class="game_field__row__vertical_wall"></div>
+            <div class="game_field__row__cell"></div>
+
+            <div class="game_field__row__vertical_wall"></div>
+            <div class="game_field__row__cell"></div>
+
+            <div class="game_field__row__vertical_wall"></div>
+            <div class="game_field__row__cell"></div>
+
+            <div class="game_field__row__vertical_wall"></div>
+
+        </div>
+
+        <div class="game_field__horisontal_walls">
+            <div class="game_field__horisontal_wall"> </div>
+            <div class="game_field__horisontal_wall"> </div>
+            <div class="game_field__horisontal_wall"> </div>
+            <div class="game_field__horisontal_wall"> </div>
+            <div class="game_field__horisontal_wall"> </div>
+
+
+        </div>
+    </div> -->
+
+    <div class="show_things">
+        <p class="show_things__text"> ОТМЕТИТЬ:</p>
+
+        <ul class="show_things__list">
+            <li class="show_things__item">
+                <input id="show_things__item__radio-1" type="checkbox" name="checkbox" value="Treasure">
+                <label for="show_things__item__radio-1"><img class="show_thing__image" src="imgs/Treasure.png"> Клад</label>
+            </li>
+            <li class="show_things__item">
+                <input id="show_things__item__radio-2" type="checkbox" name="checkbox" value="Arsenal">
+                <label for="show_things__item__radio-2"><img class="show_thing__image" src="imgs/arsenal.png"> Арсенал</label>
+            </li>
+            <li class="show_things__item">
+                <input id="show_things__item__radio-3" type="checkbox" name="checkbox" value="Robbers">
+                <label for="show_things__item__radio-3"><img class="show_thing__image" src="imgs/Robbers.png"> Разбойники</label>
+            </li>
+            <li class="show_things__item">
+                <input id="show_things__item__radio-4" type="checkbox" name="checkbox" value="Me">
+                <label for="show_things__item__radio-4">Я сам</label>
+            </li>
+            <li class="show_things__item">
+                <input id="show_things__item__radio-5" type="checkbox" name="checkbox" value="Opponent">
+                <label for="show_things__item__radio-5">Соперник</label>
+            </li>
+        </ul>
+    </div>
+
+    <!-- <svg width="90" height="84" viewbox="0 0 90 84" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g filter="url(#filter0_ddddiii)">
+        <path d="M56.1445 13.8899C54.9228 12.6567 53.4722 11.6784 51.8757 11.011C50.2791 10.3435 48.5679 10 46.8397 10C45.1115 10 43.4003 10.3435 41.8037 11.011C40.2072 11.6784 38.7566 12.6567 37.5349 13.8899L34.9994 16.4481L32.4639 13.8899C29.9961 11.4001 26.649 10.0013 23.159 10.0013C19.669 10.0013 16.322 11.4001 13.8542 13.8899C11.3864 16.3798 10 19.7567 10 23.2779C10 26.7991 11.3864 30.176 13.8542 32.6659L16.3897 35.224L34.9994 54L53.609 35.224L56.1445 32.6659C57.3668 31.4332 58.3364 29.9697 58.998 28.3589C59.6595 26.7481 60 25.0215 60 23.2779C60 21.5343 59.6595 19.8077 58.998 18.1969C58.3364 16.5861 57.3668 15.1226 56.1445 13.8899Z" fill="url(#paint0_linear)"/>
+        </g>
+        <defs>
+        <filter id="filter0_ddddiii" x="0" y="0" width="90" height="84" filterunits="userSpaceOnUse" color-interpolation-filters="sRGB">
+        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+        <feOffset dx="1" dy="1"/>
+        <feGaussianBlur stddeviation="2.5"/>
+        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+        <feOffset dx="5" dy="5"/>
+        <feGaussianBlur stdDeviation="5"/>
+        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+        <feBlend mode="normal" in2="effect1_dropShadow" result="effect2_dropShadow"/>
+        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+        <feOffset dx="4" dy="4"/>
+        <feGaussianBlur stdDeviation="4"/>
+        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+        <feBlend mode="normal" in2="effect2_dropShadow" result="effect3_dropShadow"/>
+        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+        <feOffset dx="10" dy="10"/>
+        <feGaussianBlur stdDeviation="10"/>
+        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+        <feBlend mode="normal" in2="effect3_dropShadow" result="effect4_dropShadow"/>
+        <feBlend mode="normal" in="SourceGraphic" in2="effect4_dropShadow" result="shape"/>
+        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+        <feOffset dx="-2" dy="-3"/>
+        <feGaussianBlur stdDeviation="2"/>
+        <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+        <feBlend mode="normal" in2="shape" result="effect5_innerShadow"/>
+        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+        <feOffset dx="-5" dy="-5"/>
+        <feGaussianBlur stdDeviation="7.5"/>
+        <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+        <feBlend mode="normal" in2="effect5_innerShadow" result="effect6_innerShadow"/>
+        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+        <feOffset dx="-8" dy="-8"/>
+        <feGaussianBlur stdDeviation="8"/>
+        <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+        <feblend mode="normal" in2="effect6_innerShadow" result="effect7_innerShadow"/>
+        </filter>
+        <lineargradient id="paint0_linear" x1="35" y1="10" x2="35" y2="54" gradientunits="userSpaceOnUse">
+        <stop stop-color="#FF2626"/>
+        <stop offset="0.265625" stop-color="#FF2727"/>
+        <stop offset="1" stop-color="#D00000"/>
+        </lineargradient>
+        </defs>
+        </svg> -->
+
+</body>
+
+</html>

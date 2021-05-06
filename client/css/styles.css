@@ -1,0 +1,407 @@
+html {
+    height: 100%;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-size: contain;
+    background: linear-gradient(111.76deg, #5E0000 5.78%, rgba(105, 0, 0, 0.84) 99.76%);
+}
+
+.container {
+    font-family: 'Roboto', sans-serif;
+    width: 940px;
+    display: flex;
+    /* position: relative; */
+    /* justify-content: center; */
+    border: 1px;
+    flex-direction: column;
+    min-height: 550px;
+    height: 550px;
+    align-items: center;
+    justify-content: space-around;
+    background: #FFD646;
+    border: 1px solid #744809;
+    /* -webkit-box-shadow: rgba(163, 177, 198, 0.5) 12px 12px 24px 0px, rgb(255, 255, 255) -12px -12px 24px 0px; */
+    border-radius: 25px;
+    /* -webkit-border-radius: 40px; */
+}
+
+.container__data_name {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    width: 70%;
+    min-height: 300px;
+}
+
+.container_opponents {
+    width: 50%;
+    display: flex;
+    /* justify-content: center; */
+    border: 1px;
+    flex-direction: column;
+    height: 50%;
+    justify-content: space-around;
+    background-color: rgb(221, 227, 233);
+    box-shadow: rgba(163, 177, 198, 0.9) 12px 12px 24px 0px, rgb(255, 255, 255) -12px -12px 24px 0px;
+    /* -webkit-box-shadow: rgba(163, 177, 198, 0.5) 12px 12px 24px 0px, rgb(255, 255, 255) -12px -12px 24px 0px; */
+    border-radius: 25px;
+    /* -webkit-border-radius: 40px; */
+}
+
+.arrow_back {
+    position: relative;
+    top: 1%;
+    left: 5%;
+}
+
+.labirint_text {
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    font-family: Russo One;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 72px;
+    line-height: 87px;
+    /* identical to box height */
+    text-shadow: 25px 25px 34px rgba(0, 0, 0, 0.25), 12px 12px 20px rgba(0, 0, 0, 0.25), 6px 6px 10px rgba(0, 0, 0, 0.25);
+}
+
+.players_name {
+    width: 77%;
+    height: 56px;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(224, 229, 236);
+    outline: none;
+    border: 1px;
+    border-radius: 25px;
+    border-color: rgb(224, 229, 236);
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 28px;
+    padding-left: 3%;
+}
+
+.players_name:hover {
+    background-color: rgb(166, 170, 175);
+    box-shadow: rgba(163, 177, 198, 0.5) 12px 12px 24px 0px inset, rgb(255, 255, 255) -12px -12px 24px 0px inset;
+    -webkit-box-shadow: rgba(163, 177, 198, 0.5) 12px 12px 24px 0px inset, rgb(255, 255, 255) -12px -12px 24px 0px inset;
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    outline: none;
+    border: 1px;
+    border-color: rgb(224, 229, 236);
+}
+
+.play_submit {
+    width: 80%;
+    height: 56px;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(224, 229, 236);
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    border: 0px;
+    outline: none;
+    cursor: pointer;
+    /* margin-top: 5%; */
+    align-items: center;
+}
+
+.play_submit:hover {
+    background-color: rgb(166, 170, 175);
+}
+
+.play_submit:active {
+    background-color: rgb(224, 229, 236);
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    outline: none;
+}
+
+
+/* СТИЛИ ДЛЯ выбора экрана, где создается игра */
+
+.choose_count_opponents {
+    font-family: 'Roboto', sans-serif;
+    justify-content: center;
+    display: flex;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 36px;
+    line-height: 56px;
+}
+
+.choose_count_opponents__text {
+    font-style: normal;
+    font-weight: 900;
+    font-size: 36px;
+    /* line-height: 42px; */
+}
+
+.create_game_text {
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 28px;
+    width: 75%;
+}
+
+.container__create_name {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* flex-direction: column; */
+    width: 75%;
+    /* justify-content: center; */
+    font-style: normal;
+    font-weight: 900;
+    font-size: 36px;
+    line-height: 56px;
+}
+
+.form_radio_btn {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.form_radio_btn input[type=radio] {
+    display: none;
+}
+
+.form_radio_btn label {
+    display: flex;
+    justify-content: center;
+    height: 65px;
+    width: 65px;
+    cursor: pointer;
+    padding: 0px 15px;
+    /* border: 1px solid #999; */
+    user-select: none;
+    background: #EFEFEF;
+    border-radius: 25px;
+}
+
+
+/* Checked */
+
+.form_radio_btn input[type=radio]:checked+label {
+    background: #ffe0a6;
+}
+
+
+/* Hover */
+
+.form_radio_btn label:hover {
+    color: #666;
+}
+
+
+/* Disabled */
+
+.form_radio_btn input[type=radio]:disabled+label {
+    background: #efefef;
+    color: #666;
+}
+
+.radio_margin {
+    margin-left: 7%;
+}
+
+.your_code {
+    background: #EFEFEF;
+    border-radius: 25px;
+    height: 56px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+}
+
+.your_code__text {
+    font-style: normal;
+    font-weight: 900;
+    font-size: 30px;
+    line-height: 35px;
+}
+
+.b_text {
+    font-style: normal;
+    font-weight: 900;
+    font-size: 30px;
+    line-height: 35px;
+}
+
+
+/* ПРАВИЛА ИГРЫ */
+
+.rules {
+    font-family: 'Roboto', sans-serif;
+    width: 940px;
+    display: flex;
+    min-height: 800px;
+    /* justify-content: center; */
+    border: 1px;
+    flex-direction: column;
+    /* height: 450px; */
+    align-items: center;
+    justify-content: space-around;
+    background: #FFD646;
+    border: 1px solid #744809;
+    box-sizing: border-box;
+    /* -webkit-box-shadow: rgba(163, 177, 198, 0.5) 12px 12px 24px 0px, rgb(255, 255, 255) -12px -12px 24px 0px; */
+    border-radius: 25px;
+    position: relative;
+    animation-name: popupanim;
+    animation-duration: 1.2s;
+    transition-timing-function: ease-in-out;
+}
+
+@keyframes popupanim {
+    from {
+        top: -800px;
+        opacity: 0;
+    }
+    to {
+        top: 0;
+        opacity: 100;
+    }
+}
+
+.rules__text {
+    margin: 1% 5% 1% 5%;
+}
+
+
+/* ввод кода к игре */
+
+.players_code {
+    width: 80%;
+    height: 56px;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(224, 229, 236);
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    border: 0px;
+    outline: none;
+    /* cursor: pointer; */
+    /* margin-top: 5%; */
+    align-items: center;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 28px;
+    padding-left: 4%;
+}
+
+.players_code:hover {
+    background-color: rgb(166, 170, 175);
+}
+
+.players_code:active {
+    background-color: rgb(224, 229, 236);
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    outline: none;
+}
+
+
+/* контейнер со списком публичных игр */
+
+.container__list_of_games {
+    background-color: rgb(255, 255, 255);
+    height: 85%;
+    width: 85%;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    /* justify-content: center; */
+    font-style: normal;
+    font-weight: 900;
+    font-size: 36px;
+    line-height: 56px;
+    border-radius: 25px;
+    overflow: auto;
+    /* Добавляем полосы прокрутки */
+}
+
+.list_of_games {
+    margin-top: 1%;
+    width: 85%;
+    display: flex;
+    /* align-items: space-between; */
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.list_of_games__text {
+    /* margin-right: 10%; */
+    /* margin-left: 3%; */
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 28px;
+}
+
+.list_of_games__create_game_btn {
+    width: 20%;
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    -webkit-border-radius: 25px;
+    border: 0px;
+    outline: none;
+    cursor: pointer;
+    /* margin-top: 5%; */
+    align-items: center;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 12px;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 21px;
+    color: #383838;
+}
+
+.list_of_games__create_game_btn:hover {
+    background-color: rgb(166, 170, 175);
+}
+
+.list_of_games__create_game_btn:active {
+    background-color: rgb(224, 229, 236);
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    outline: none;
+}
+
+.list_of_games__btns {
+    display: flex;
+    justify-content: space-around;
+}
+
+.container__list_of_games__no_games {
+    display: none;
+    margin-bottom: 15%;
+    width: 60%;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 28px;
+    color: rgba(0, 0, 0, 0.5);
+}

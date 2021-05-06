@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабиринт игра</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/reset.css">
+</head>
+
+<body>
+
+    <!-- <div class="container">
+        <p class="labirint_text">лабиринт</p>
+
+        <form method="POST" class="container__data_name">
+
+            <input type="text" class="players_name" placeholder="Имя...">
+            <input type="password" class="players_name" placeholder="Пароль...">
+
+            <button id="play_game" class="play_submit" type="button"><p class="b_text">ИГРАТЬ</p>  </button>
+            <button id="enter_game" class="play_submit" type="button"><p class="b_text">Правила</p>  </button>
+        </form>
+
+    </div> -->
+    <div class="rules">
+
+        <div class="rules_big_text">
+            <p class="labirint_text">Правила</p>
+            <!-- 
+            <!-- <svg class="close_btn" width="28" height="28" viewbox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M25 3L3 25" stroke="black" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3 3L25 25" stroke="black" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>  -->
+
+            <p class="rules__text">В&nbsp;игре участвуют 3&ndash;4&nbsp;игрока. Система создает лабиринт 5&times;5&nbsp;клеток. Лабиринт имеет один выход, внешние и&nbsp;внутренние стенки. Некоторые клетки лабиринта &mdash; значащие и&nbsp;обозначаются буквами, такими как:</p>
+
+            <p class="rules__text">K &mdash; место, где&nbsp;находится клад</p>
+
+            <p class="rules__text">А&nbsp;&mdash; арсенал</p>
+
+            <p class="rules__text">Р&nbsp;&mdash; разбойники</p>
+
+            <p class="rules__text">Задача игрока найти место, где&nbsp;находится клад, взять клад и&nbsp;вынести его&nbsp;из&nbsp;лабиринта. Изначально игрок имеет запасы по&nbsp;максимуму 3&nbsp;патрона, мешок и&nbsp;гранату. Патронами игрок может стрелять в&nbsp;других игроков.
+                С&nbsp;помощью мешка поставить стенку. С&nbsp;помощью гранаты взорвать стенку. Внешние стенки не&nbsp;взрываются. Выход из&nbsp;лабиринта замуровывать нельзя. Если игрок попадает в&nbsp;арсенал, то&nbsp;его&nbsp;запасы пополняются до&nbsp;максимума.
+                Находясь в&nbsp;арсенале, игрок не&nbsp;может стрелять, ставить или&nbsp;взрывать стенку.</p>
+
+            <p class="rules__text">Если игрок попадает на&nbsp;разбойников, то&nbsp;его&nbsp;запасы обнуляются, а&nbsp;клад, если у&nbsp;он&nbsp;у&nbsp;игрока есть, возвращается на&nbsp;место.</p>
+
+            <p class="rules__text">Далее игроки по&nbsp;очереди делают ходы. Ход&nbsp;заключается в&nbsp;том, что&nbsp;игрок выбирает одно из&nbsp;4ех действий: переместиться вверх (вниз, вправо, влево), стрелять вверх (вниз, вправо, влево), поставить или&nbsp;взорвать стенку
+                вверх (вниз, вправо, влево). Система соответственно даст ответ: прошел вверх (вниз, вправо, влево) или&nbsp;попал в&nbsp;арсенал (пополнил запасы), к&nbsp;разбойникам (отобрали все), стенка (считается за&nbsp;ход), или&nbsp;соответственно
+                промазал или&nbsp;попал, или&nbsp;соответственно взорвал стенку или&nbsp;стенка не&nbsp;взрывается. Поставил стенку или&nbsp;стенка не&nbsp;ставится. </p>
+
+            <p class="rules__text">Если игрок стреляя, попал в&nbsp;другого игрока, то&nbsp;стрелявший переносится на&nbsp;место убитого, отнимает у&nbsp;последнего клад (если есть), запасы до&nbsp;максимума и&nbsp;делает 4&nbsp;внеочередных хода. У&nbsp;каждого игрока сначала
+                есть 3&nbsp;жизни. После третьего попадания игрок выбывает из&nbsp;игры. Для&nbsp;попадания между игроками не&nbsp;должно быть стенки.</p>
+
+            <p class="rules__text last_text">Игроки не&nbsp;видят лабиринта, созданного системой. Они&nbsp;должны, отмечая свои ходы и&nbsp;ходы противника на&nbsp;поле, нарисовать лабиринт, определить свое положение в&nbsp;нем&nbsp;и&nbsp;положение противников и&nbsp;вынести клад первыми.</p>
+
+            <p class="rules__text last_text">Удачи в&nbsp;игре! </p>
+        </div>
+
+        <button id="close_rules" class="play_submit" type="button"><p class="b_text">Закрыть</p>  </button>
+
+    </div>
+
+    <!-- <div class="container">
+        <p class="labirint_text">username</p>
+
+        <form method="POST" class="container__data_name">
+            <button id="continue_game_btn" class="play_submit" type="button"><p class="b_text">Продолжить игру</p>  </button>
+            <button id="create_game_btn" class="play_submit" type="button"><p class="b_text">Создать игру</p>  </button>
+            <button id="find_game_btn" class="play_submit" type="button"><p class="b_text">Найти игру</p>  </button>
+            <button id="enter_code_btn" class="play_submit" type="button"><p class="b_text">Ввести код</p>  </button>
+        </form>
+
+    </div> -->
+
+    <!-- <div class="container">
+        <p class="labirint_text">username</p>
+
+        <form method="POST" class="container__create_name">
+
+            <p class="choose_count_opponents__text">Игроков:</p>
+
+            <div class="form_radio_btn radio_margin">
+                <input id="radio-3" type="radio" name="radio" value="3">
+                <label for="radio-3">3</label>
+            </div>
+
+            <div class="form_radio_btn">
+                <input id="radio-4" type="radio" name="radio" value="4">
+                <label for="radio-4">4</label>
+            </div>
+
+        </form>
+
+        <form method="POST" class="container__create_name">
+
+            <p class="choose_count_opponents__text">Приватная:</p>
+            <div class="form_radio_btn">
+                <input id="radio-0" type="radio" name="radio" value="0">
+                <label for="radio-0">да</label>
+            </div>
+
+            <div class="form_radio_btn">
+                <input id="radio-1" type="radio" name="radio" value="1">
+                <label for="radio-1">нет</label>
+            </div>
+        </form>
+
+        <form class="your_code" method="post">
+            <p class="your_code__text">fhk39dns4uvnsl5is20fksmcirhsnfirdg</p>
+
+        </form>
+        <p class="create_game_text">Отправь этот код друзьям и попроси их ввести в поле.</p>
+        <button id="start_game_btn" class="play_submit" type="button"><p class="b_text">Начать игру</p>  </button>
+    </div> -->
+
+    <!-- <div class="container">
+        <form method="POST" class="container__data_name">
+            <input type="text" class="players_name" placeholder="Твой код к игре...">
+
+            <button id="play_game" class="play_submit" type="button"><p class="b_text">Начать игру</p>  </button>
+        </form>
+
+    </div> -->
+
+    <!-- <div class="container">
+
+        <div class="list_of_games">
+            <p class="list_of_games__text">Создатель:</p>
+            <p class="list_of_games__text">Игроков:</p>
+            <button id="play_game" class="list_of_games__create_game_btn" type="button"><p class="">Создать игру</p> </button>
+        </div>
+
+
+
+        <form method="POST" class="container__list_of_games">
+            <p class="container__list_of_games__no_games">Упс, кажется никто не&nbsp;создал игру. Будь, первым, нажав кнопку &laquo;Cоздать игру&raquo; вверху экрана!</p>
+
+
+            <button class="play_submit list_of_games__btns" type="button" value="md_code"><p class="b_text">имяодногоизигроков</p> <p class="b_text">кол-воигроков</p> </button>
+            <button class="play_submit list_of_games__btns" type="button" value="md_code"><p class="b_text">vika19999</p> <p class="b_text">4</p> </button>
+            <button class="play_submit list_of_games__btns" type="button" value="md_code"><p class="b_text">Jj_13</p> <p class="b_text">3</p> </button>
+
+        </form>
+
+    </div> -->
+
+</body>
+
+</html>

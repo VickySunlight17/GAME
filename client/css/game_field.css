@@ -1,0 +1,207 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-size: contain;
+    background: linear-gradient(111.76deg, #5E0000 5.78%, rgba(105, 0, 0, 0.84) 99.76%);
+}
+
+
+/* _______________________________________ИГРОВОЕ ПОЛЕ_______________________________ */
+
+.game_field {
+    width: 530px;
+    height: 530px;
+    border-radius: 1px white;
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: column;
+}
+
+.game_field__row {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.game_field__horisontal_walls {
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: row;
+}
+
+.game_field__row__vertical_wall {
+    width: 4px;
+    height: 106px;
+    background: rgb(201, 144, 255);
+    display: flex;
+}
+
+.game_field__horisontal_wall {
+    width: 106px;
+    height: 4px;
+    background: rgb(201, 144, 255);
+}
+
+.game_field__row__cell {
+    position: relative;
+    display: flex;
+    width: 106px;
+    height: 106px;
+    background: linear-gradient(142.61deg, #FAFF13 4.29%, rgba(255, 255, 255, 0) 94.07%), linear-gradient(135.66deg, #FFFFFF 0%, #FFFFFF 97.56%);
+    border: 1px solid #ffe39d;
+    /*#624600; */
+    box-sizing: border-box;
+    box-shadow: 20px 30px 29px -10px rgba(255, 203, 18, 0.11), inset -5px -5px 4px rgba(255, 203, 18, 0.1), inset 5px 5px 15px rgba(249, 199, 24, 0.1);
+}
+
+.game_field__row__cell:hover .show_things {
+    z-index: 100;
+    cursor: pointer;
+    display: flex;
+}
+
+
+/*___________________________ ВСПЛЫВАЮЩЕЕ МЕНЮ У ИГРОКА __________________________*/
+
+.show_things {
+    position: absolute;
+    left: 10%;
+    top: 10%;
+    width: 270px;
+    height: 330px;
+    background: #FFD646;
+    border: 2px solid #613400;
+    box-sizing: border-box;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.show_things__list {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.show_things__text {
+    margin-top: 15px;
+    display: flex;
+    width: fit-content;
+    font-family: Russo One;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 43px;
+    color: #780700;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.show_things__item {
+    font-family: Russo One;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 29px;
+    color: rgba(164, 32, 32, 0.92);
+    display: flex;
+    width: 100%;
+    /* margin-right: 10px; */
+}
+
+.show_things__item input[type=checkbox] {
+    display: none;
+}
+
+.show_things__item label {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0px 15px;
+    line-height: 34px;
+    border: 1px solid #999;
+    border-radius: 6px;
+    user-select: none;
+}
+
+
+/* Checked */
+
+.show_things__item input[type=checkbox]:checked+label {
+    background: #ffe0a6;
+}
+
+
+/* Hover */
+
+.show_things__item label:hover {
+    color: #666;
+}
+
+
+/* Disabled */
+
+.show_things__item input[type=checkbox]:disabled+label {
+    background: #efefef;
+    color: #666;
+}
+
+.show_thing__image {
+    filter: drop-shadow(4px 7px 6px #382C00);
+}
+
+
+/* _______________________________КНОПКИ ДЕЙСТВИЙ ИГРОКА______________________ */
+
+.actions {
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.actions__text {
+    font-family: Russo One;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 43px;
+    color: #FFFFFF;
+}
+
+.actions__btn {
+    width: 80%;
+    height: 56px;
+    display: flex;
+    justify-content: center;
+    border: 0px;
+    outline: none;
+    cursor: pointer;
+    /* margin-top: 5%; */
+    align-items: center;
+    font-family: Russo One;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 29px;
+    color: rgba(164, 32, 32, 0.92);
+    background: linear-gradient(93.93deg, #FFD646 3.8%, #FFD646 96.77%);
+    border: 1px solid rgba(98, 41, 0, 0.92);
+    box-sizing: border-box;
+}
+
+.actions__btn:hover {
+    background-color: rgb(166, 170, 175);
+}
+
+.actions__btn:active {
+    background-color: rgb(224, 229, 236);
+    outline: none;
+}

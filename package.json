@@ -1,0 +1,35 @@
+{
+    "name": "labirint_game",
+    "version": "1.0.0",
+    "description": "intellectual board game \"labyrinth\" in a new format",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node server/index.js",
+        "dev": "nodemon index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/VickySunlight17/GAME.git"
+    },
+    "keywords": [
+        "node",
+        "game",
+        "labyrinth"
+    ],
+    "author": "Victoria Potapenko <vicktoria702@gmail.com>",
+    "license": "MIT",
+    "dependencies": {
+        "express": "^4.17.1",
+        "mysql": "^2.18.1"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.7",
+        "@types/express": "^4.17.11",
+        "@types/node": "^14.14.37"
+    },
+    "bugs": {
+        "url": "https://github.com/VickySunlight17/GAME/issues"
+    },
+    "homepage": "https://github.com/VickySunlight17/GAME#readme"
+}

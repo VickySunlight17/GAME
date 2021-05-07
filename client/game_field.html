@@ -10,182 +10,267 @@
     <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Russo+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
+    <!-- <link rel="stylesheet" href="css/styles.css"> -->
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/game_field.css">
 </head>
 
 <body>
 
+    <div class="game_wrapper">
+        <div class="actions_panel1">
+            <div class="actions">
+                <div class="players_name_wrapper">
+                    <p class="players_name_wrapper__text">ИГРОК</p>
+                    <p class="players_name_wrapper__player">Victoria3469</p>
 
-    <div class="actions">
-        <p class="actions__text">ДЕЙСТВИЯ:</p>
+                </div>
 
-        <button id="movePlayer" class="actions__btn" type="button">Переместиться</button>
-        <button id="shoot" class="actions__btn" type="button">Выстрелить</button>
-        <button id="makeWall" class="actions__btn" type="button">Поставить стену</button>
-        <button id="destroyWall" class="actions__btn" type="button">Разрушить стену</button>
+                <div class="actions">
+                    <p class="actions__text">ДЕЙСТВИЯ:</p>
+
+                    <button id="movePlayer" class="actions__btn" type="button">
+                        <div class="actions__btn__container_img"><img class="actions__btn__img" src="imgs/move.png"></div><div class="actions__btn__container_text">Переместиться</div>
+                    </button>
+                    <button id="shoot" class="actions__btn" type="button">
+                        <div class="actions__btn__container_img"><img class="actions__btn__img" src="imgs/bullet.svg"></div><div class="actions__btn__container_text">Выстрелить</div>
+                    </button>
+                    <button id="makeWall" class="actions__btn" type="button">
+                        <div class="actions__btn__container_img"><img class="actions__btn__img" src="imgs/wall.png"></div><div class="actions__btn__container_text">Поставить стену</div>
+                    </button>
+                    <button id="destroyWall" class="actions__btn" type="button">
+                        <div class="actions__btn__container_img"><img class="actions__btn__img" src="imgs/dwall.png"></div> <div class="actions__btn__container_text">Разрушить стену</div> 
+                    </button>
+                </div>
+
+                <p class="actions__text">НАПРАВЛЕНИЕ:</p>
+
+                <ul class="direction__list">
+                    <li class="direction__item">
+                        <input id="direction__item__radio-1" type="radio" name="radio" value="1">
+                        <label for="direction__item__radio-1"><img class="actions__btn__img" src="imgs/darrow.svg"> <div class="actions__btn__container_text">Вверх</div></label>
+                    </li>
+                    <li class="direction__item">
+                        <input id="direction__item__radio-2" type="radio" name="radio" value="2">
+                        <label for="direction__item__radio-2"><img class="actions__btn__img" style="transform: rotate(180deg); " src="imgs/darrow.svg"> <div class="actions__btn__container_text">Вниз</div></label>
+                    </li>
+                    <li class="direction__item">
+                        <input id="direction__item__radio-3" type="radio" name="radio" value="3">
+                        <label for="direction__item__radio-3"><img class="actions__btn__img" style="transform: rotate(90deg); " src="imgs/darrow.svg"> <div class="actions__btn__container_text">Вправо</div></label>
+                    </li>
+                    <li class="direction__item">
+                        <input id="direction__item__radio-4" type="radio" name="radio" value="4">
+                        <label for="direction__item__radio-4"><img class="actions__btn__img" style="transform: rotate(270deg); " src="imgs/darrow.svg"><div class="actions__btn__container_text">Влево</div></label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="actions_panel1 field_center">
+            <div class="game_field">
+                <div class="game_field__horisontal_walls">
+                    <div class="game_field__horisontal_wall"> </div>
+                    <div class="game_field__horisontal_wall"> </div>
+                    <div class="game_field__horisontal_wall"> </div>
+                    <div class="game_field__horisontal_wall"> </div>
+                    <div class="game_field__horisontal_wall"> </div>
+
+                </div>
+
+                <div class="game_field__horisontal_walls">
+                    <div class="game_field__row__vertical_wall"></div>
+                    <div id="cell1" class="game_field__row__cell"></div>
+
+                    <div class="game_field__row__vertical_wall"></div>
+                    <div id="cell2" class="game_field__row__cell"></div>
+
+                    <div class="game_field__row__vertical_wall"></div>
+                    <div id="cell3" class="game_field__row__cell"></div>
+
+                    <div class="game_field__row__vertical_wall"></div>
+                    <div id="cell4" class="game_field__row__cell"></div>
+
+                    <div class="game_field__row__vertical_wall"></div>
+                    <div id="cell5" class="game_field__row__cell"></div>
+
+                    <div class="game_field__row__vertical_wall"></div>
+
+                </div>
+
+                <div class="game_field__horisontal_walls">
+                    <div class="game_field__horisontal_wall"> </div>
+                    <div class="game_field__horisontal_wall"> </div>
+                    <div class="game_field__horisontal_wall"> </div>
+                    <div class="game_field__horisontal_wall"> </div>
+                    <div class="game_field__horisontal_wall"> </div>
+
+                </div>
+
+                <div class="game_field__horisontal_walls">
+                    <div class="game_field__row__vertical_wall"></div>
+                    <div class="game_field__row__cell"></div>
+
+                    <div class="game_field__row__vertical_wall"></div>
+                    <div class="game_field__row__cell"></div>
+
+                    <div class="game_field__row__vertical_wall"></div>
+                    <div class="game_field__row__cell"></div>
+
+                    <div class="game_field__row__vertical_wall"></div>
+                    <div class="game_field__row__cell"></div>
+
+                    <div class="game_field__row__vertical_wall"></div>
+                    <div class="game_field__row__cell"></div>
+
+                    <div class="game_field__row__vertical_wall"></div>
+
+                </div>
+
+                <div class="game_field__horisontal_walls">
+                    <div class="game_field__horisontal_wall"> </div>
+                    <div class="game_field__horisontal_wall"> </div>
+                    <div class="game_field__horisontal_wall"> </div>
+                    <div class="game_field__horisontal_wall"> </div>
+                    <div class="game_field__horisontal_wall"> </div>
+
+                </div>
+
+                <div class="game_field__horisontal_walls">
+                    <div class="game_field__row__vertical_wall"></div>
+                    <div class="game_field__row__cell"></div>
+
+                    <div class="game_field__row__vertical_wall"></div>
+                    <div class="game_field__row__cell"></div>
+
+                    <div class="game_field__row__vertical_wall"></div>
+                    <div class="game_field__row__cell"></div>
+
+                    <div class="game_field__row__vertical_wall"></div>
+                    <div class="game_field__row__cell"></div>
+
+                    <div class="game_field__row__vertical_wall"></div>
+                    <div class="game_field__row__cell"></div>
+
+                    <div class="game_field__row__vertical_wall"></div>
+
+                </div>
+
+                <div class="game_field__horisontal_walls">
+                    <div class="game_field__horisontal_wall"> </div>
+                    <div class="game_field__horisontal_wall"> </div>
+                    <div class="game_field__horisontal_wall"> </div>
+                    <div class="game_field__horisontal_wall"> </div>
+                    <div class="game_field__horisontal_wall"> </div>
+
+                </div>
+
+                <div class="game_field__horisontal_walls">
+                    <div class="game_field__row__vertical_wall"></div>
+                    <div class="game_field__row__cell"></div>
+
+                    <div class="game_field__row__vertical_wall"></div>
+                    <div class="game_field__row__cell"></div>
+
+                    <div class="game_field__row__vertical_wall"></div>
+                    <div class="game_field__row__cell"></div>
+
+                    <div class="game_field__row__vertical_wall"></div>
+                    <div class="game_field__row__cell"></div>
+
+                    <div class="game_field__row__vertical_wall"></div>
+                    <div class="game_field__row__cell"></div>
+
+                    <div class="game_field__row__vertical_wall"></div>
+
+                </div>
+
+                <div class="game_field__horisontal_walls">
+                    <div class="game_field__horisontal_wall"> </div>
+                    <div class="game_field__horisontal_wall"> </div>
+                    <div class="game_field__horisontal_wall"> </div>
+                    <div class="game_field__horisontal_wall"> </div>
+                    <div class="game_field__horisontal_wall"> </div>
+
+                </div>
+
+                <div class="game_field__horisontal_walls">
+                    <div class="game_field__row__vertical_wall"></div>
+                    <div class="game_field__row__cell"></div>
+
+                    <div class="game_field__row__vertical_wall"></div>
+                    <div class="game_field__row__cell"></div>
+
+                    <div class="game_field__row__vertical_wall"></div>
+                    <div class="game_field__row__cell"></div>
+
+                    <div class="game_field__row__vertical_wall"></div>
+                    <div class="game_field__row__cell"></div>
+
+                    <div class="game_field__row__vertical_wall"></div>
+                    <div class="game_field__row__cell"></div>
+
+                    <div class="game_field__row__vertical_wall"></div>
+
+                </div>
+
+                <div class="game_field__horisontal_walls">
+                    <div class="game_field__horisontal_wall"> </div>
+                    <div class="game_field__horisontal_wall"> </div>
+                    <div class="game_field__horisontal_wall"> </div>
+                    <div class="game_field__horisontal_wall"> </div>
+                    <div class="game_field__horisontal_wall"> </div>
 
 
+                </div>
+            </div>
+            <div class="history_of_moves">
+                <p class="history_of_moves__text">ИСТОРИЯ ХОДОВ:</p>
 
+                <div class="history_of_moves__answers">
+                    <p class="history_of_moves__answers__text"><span class="history_of_moves__answers__player">Victoria3469 </span> переместился влево</p>
+                    <p class="history_of_moves__answers__text"><span class="history_of_moves__answers__player">Xenia2000 </span> выстрелил вниз</p>
+                    <p class="history_of_moves__answers__text"><span class="history_of_moves__answers__player">MariaMysh </span> взорвала стену сверху и ранила другого игрока и забрала у него Клад</p>
+                    <p class="history_of_moves__answers__text"><span class="history_of_moves__answers__player">Victoria3469 </span>поставил стену справа</p>
+                    <p class="history_of_moves__answers__text"><span class="history_of_moves__answers__player">Xenia2000 </span> выстрелил вниз</p>
+                    <p class="history_of_moves__answers__text"><span class="history_of_moves__answers__player">MariaMysh </span> взорвала стену сверху</p>
+                </div>
+            </div>
+        </div>
+        <div class="actions_panel1">
+            <div class="stock">
+                <p class="stock__text">ЗАПАСЫ</p>
+
+                <div class="stock__list">
+                    <div class="stock__item">
+                        <p class="stock__item__text">Патроны</p>
+                        <div id="patron1" class="stock__item__container_img"><img class="stock__item__img" src="imgs/patron.svg" alt="патроны"></div>
+                        <div id="patron2" class="stock__item__container_img"><img class="stock__item__img" src="imgs/patron.svg" alt="патроны"></div>
+                        <div id="patron3" class="stock__item__container_img"><img class="stock__item__img" src="imgs/patron.svg" alt="патроны"></div>
+                    </div>
+                    <div class="stock__item">
+                        <p class="stock__item__text">Мешки</p>
+                        <div id="cement1" class="stock__item__container_img"><img class="stock__item__img" src="imgs/cement.png" alt="патроны"></div>
+                        <div id="cement2" class="stock__item__container_img"><img class="stock__item__img" src="imgs/cement.png" alt="патроны"></div>
+                        <div id="cement3" class="stock__item__container_img"><img class="stock__item__img" src="imgs/cement.png" alt="патроны"></div>
+                    </div>
+                    <div class="stock__item">
+                        <p class="stock__item__text">Гранаты</p>
+                        <div id="grenade1" class="stock__item__container_img"><img class="stock__item__img" src="imgs/grenade.png" alt="патроны"></div>
+                        <div id="grenade2" class="stock__item__container_img"><img class="stock__item__img" src="imgs/grenade.png" alt="патроны"></div>
+                        <div id="grenade3" class="stock__item__container_img"><img class="stock__item__img" src="imgs/grenade.png" alt="патроны"></div>
+                    </div>
+                    <div class="stock__item">
+                        <p class="stock__item__text">Жизни</p>
+                        <div id="life1" class="stock__item__container_img"><img class="stock__item__img" src="imgs/heart.svg" alt="патроны"></div>
+                        <div id="life2" class="stock__item__container_img"><img class="stock__item__img" src="imgs/heart.svg" alt="патроны"></div>
+                        <div id="life3" class="stock__item__container_img"><img class="stock__item__img" src="imgs/heart.svg" alt="патроны"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
-    <!-- <div class="game_field">
-        <div class="game_field__horisontal_walls">
-            <div class="game_field__horisontal_wall"> </div>
-            <div class="game_field__horisontal_wall"> </div>
-            <div class="game_field__horisontal_wall"> </div>
-            <div class="game_field__horisontal_wall"> </div>
-            <div class="game_field__horisontal_wall"> </div>
-
-        </div>
-
-        <div class="game_field__horisontal_walls">
-            <div class="game_field__row__vertical_wall"></div>
-            <div id="cell1" class="game_field__row__cell"></div>
-
-            <div class="game_field__row__vertical_wall"></div>
-            <div id="cell2" class="game_field__row__cell"></div>
-
-            <div class="game_field__row__vertical_wall"></div>
-            <div id="cell3" class="game_field__row__cell"></div>
-
-            <div class="game_field__row__vertical_wall"></div>
-            <div id="cell4" class="game_field__row__cell"></div>
-
-            <div class="game_field__row__vertical_wall"></div>
-            <div id="cell5" class="game_field__row__cell"></div>
-
-            <div class="game_field__row__vertical_wall"></div>
-
-        </div>
-
-        <div class="game_field__horisontal_walls">
-            <div class="game_field__horisontal_wall"> </div>
-            <div class="game_field__horisontal_wall"> </div>
-            <div class="game_field__horisontal_wall"> </div>
-            <div class="game_field__horisontal_wall"> </div>
-            <div class="game_field__horisontal_wall"> </div>
-
-        </div>
-
-        <div class="game_field__horisontal_walls">
-            <div class="game_field__row__vertical_wall"></div>
-            <div class="game_field__row__cell"></div>
-
-            <div class="game_field__row__vertical_wall"></div>
-            <div class="game_field__row__cell"></div>
-
-            <div class="game_field__row__vertical_wall"></div>
-            <div class="game_field__row__cell"></div>
-
-            <div class="game_field__row__vertical_wall"></div>
-            <div class="game_field__row__cell"></div>
-
-            <div class="game_field__row__vertical_wall"></div>
-            <div class="game_field__row__cell"></div>
-
-            <div class="game_field__row__vertical_wall"></div>
-
-        </div>
-
-        <div class="game_field__horisontal_walls">
-            <div class="game_field__horisontal_wall"> </div>
-            <div class="game_field__horisontal_wall"> </div>
-            <div class="game_field__horisontal_wall"> </div>
-            <div class="game_field__horisontal_wall"> </div>
-            <div class="game_field__horisontal_wall"> </div>
-
-        </div>
-
-        <div class="game_field__horisontal_walls">
-            <div class="game_field__row__vertical_wall"></div>
-            <div class="game_field__row__cell"></div>
-
-            <div class="game_field__row__vertical_wall"></div>
-            <div class="game_field__row__cell"></div>
-
-            <div class="game_field__row__vertical_wall"></div>
-            <div class="game_field__row__cell"></div>
-
-            <div class="game_field__row__vertical_wall"></div>
-            <div class="game_field__row__cell"></div>
-
-            <div class="game_field__row__vertical_wall"></div>
-            <div class="game_field__row__cell"></div>
-
-            <div class="game_field__row__vertical_wall"></div>
-
-        </div>
-
-        <div class="game_field__horisontal_walls">
-            <div class="game_field__horisontal_wall"> </div>
-            <div class="game_field__horisontal_wall"> </div>
-            <div class="game_field__horisontal_wall"> </div>
-            <div class="game_field__horisontal_wall"> </div>
-            <div class="game_field__horisontal_wall"> </div>
-
-        </div>
-
-        <div class="game_field__horisontal_walls">
-            <div class="game_field__row__vertical_wall"></div>
-            <div class="game_field__row__cell"></div>
-
-            <div class="game_field__row__vertical_wall"></div>
-            <div class="game_field__row__cell"></div>
-
-            <div class="game_field__row__vertical_wall"></div>
-            <div class="game_field__row__cell"></div>
-
-            <div class="game_field__row__vertical_wall"></div>
-            <div class="game_field__row__cell"></div>
-
-            <div class="game_field__row__vertical_wall"></div>
-            <div class="game_field__row__cell"></div>
-
-            <div class="game_field__row__vertical_wall"></div>
-
-        </div>
-
-        <div class="game_field__horisontal_walls">
-            <div class="game_field__horisontal_wall"> </div>
-            <div class="game_field__horisontal_wall"> </div>
-            <div class="game_field__horisontal_wall"> </div>
-            <div class="game_field__horisontal_wall"> </div>
-            <div class="game_field__horisontal_wall"> </div>
-
-        </div>
-
-        <div class="game_field__horisontal_walls">
-            <div class="game_field__row__vertical_wall"></div>
-            <div class="game_field__row__cell"></div>
-
-            <div class="game_field__row__vertical_wall"></div>
-            <div class="game_field__row__cell"></div>
-
-            <div class="game_field__row__vertical_wall"></div>
-            <div class="game_field__row__cell"></div>
-
-            <div class="game_field__row__vertical_wall"></div>
-            <div class="game_field__row__cell"></div>
-
-            <div class="game_field__row__vertical_wall"></div>
-            <div class="game_field__row__cell"></div>
-
-            <div class="game_field__row__vertical_wall"></div>
-
-        </div>
-
-        <div class="game_field__horisontal_walls">
-            <div class="game_field__horisontal_wall"> </div>
-            <div class="game_field__horisontal_wall"> </div>
-            <div class="game_field__horisontal_wall"> </div>
-            <div class="game_field__horisontal_wall"> </div>
-            <div class="game_field__horisontal_wall"> </div>
 
 
-        </div>
-    </div> -->
 
     <div class="show_things">
         <p class="show_things__text"> ОТМЕТИТЬ:</p>
@@ -213,62 +298,12 @@
             </li>
         </ul>
     </div>
-
-    <!-- <svg width="90" height="84" viewbox="0 0 90 84" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g filter="url(#filter0_ddddiii)">
-        <path d="M56.1445 13.8899C54.9228 12.6567 53.4722 11.6784 51.8757 11.011C50.2791 10.3435 48.5679 10 46.8397 10C45.1115 10 43.4003 10.3435 41.8037 11.011C40.2072 11.6784 38.7566 12.6567 37.5349 13.8899L34.9994 16.4481L32.4639 13.8899C29.9961 11.4001 26.649 10.0013 23.159 10.0013C19.669 10.0013 16.322 11.4001 13.8542 13.8899C11.3864 16.3798 10 19.7567 10 23.2779C10 26.7991 11.3864 30.176 13.8542 32.6659L16.3897 35.224L34.9994 54L53.609 35.224L56.1445 32.6659C57.3668 31.4332 58.3364 29.9697 58.998 28.3589C59.6595 26.7481 60 25.0215 60 23.2779C60 21.5343 59.6595 19.8077 58.998 18.1969C58.3364 16.5861 57.3668 15.1226 56.1445 13.8899Z" fill="url(#paint0_linear)"/>
-        </g>
-        <defs>
-        <filter id="filter0_ddddiii" x="0" y="0" width="90" height="84" filterunits="userSpaceOnUse" color-interpolation-filters="sRGB">
-        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
-        <feOffset dx="1" dy="1"/>
-        <feGaussianBlur stddeviation="2.5"/>
-        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
-        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
-        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
-        <feOffset dx="5" dy="5"/>
-        <feGaussianBlur stdDeviation="5"/>
-        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
-        <feBlend mode="normal" in2="effect1_dropShadow" result="effect2_dropShadow"/>
-        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
-        <feOffset dx="4" dy="4"/>
-        <feGaussianBlur stdDeviation="4"/>
-        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
-        <feBlend mode="normal" in2="effect2_dropShadow" result="effect3_dropShadow"/>
-        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
-        <feOffset dx="10" dy="10"/>
-        <feGaussianBlur stdDeviation="10"/>
-        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
-        <feBlend mode="normal" in2="effect3_dropShadow" result="effect4_dropShadow"/>
-        <feBlend mode="normal" in="SourceGraphic" in2="effect4_dropShadow" result="shape"/>
-        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-        <feOffset dx="-2" dy="-3"/>
-        <feGaussianBlur stdDeviation="2"/>
-        <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
-        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
-        <feBlend mode="normal" in2="shape" result="effect5_innerShadow"/>
-        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-        <feOffset dx="-5" dy="-5"/>
-        <feGaussianBlur stdDeviation="7.5"/>
-        <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
-        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
-        <feBlend mode="normal" in2="effect5_innerShadow" result="effect6_innerShadow"/>
-        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-        <feOffset dx="-8" dy="-8"/>
-        <feGaussianBlur stdDeviation="8"/>
-        <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
-        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
-        <feblend mode="normal" in2="effect6_innerShadow" result="effect7_innerShadow"/>
-        </filter>
-        <lineargradient id="paint0_linear" x1="35" y1="10" x2="35" y2="54" gradientunits="userSpaceOnUse">
-        <stop stop-color="#FF2626"/>
-        <stop offset="0.265625" stop-color="#FF2727"/>
-        <stop offset="1" stop-color="#D00000"/>
-        </lineargradient>
-        </defs>
-        </svg> -->
-
+    <!-- <div class="wall_hover">
+        <button id="addWall" class="actions__btn" type="button">
+        <div class="actions__btn__container_text">Убрать стену</div></button>
+        <button id="removeWall" class="actions__btn" type="button">
+        <div class="actions__btn__container_text">Отметить стену</div></button>
+    </div> -->
 </body>
 
 </html>

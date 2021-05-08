@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Лабиринт игра</title>
+    <link rel="shortcut icon" href="imgs/favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -19,9 +20,9 @@
     <div id="first_screen" class="container">
         <p class="labirint_text">лабиринт</p>
 
-        <form method="POST" class="container__data_name">
-            <input type="text" class="players_name" placeholder="Имя...">
-            <input type="password" class="players_name" autocomplete="on" placeholder="Пароль...">
+        <form method="POST" name="regname" class="container__data_name">
+            <input type="text" name="regname" class="players_name" placeholder="Имя...">
+            <input type="password" name="regpw" class="players_name" autocomplete="on" placeholder="Пароль...">
 
             <button id="play_game" class="play_submit" type="button"><p class="b_text">ИГРАТЬ</p>  </button>
             <button id="enter_game" class="play_submit" type="button"><p class="b_text">Правила</p>  </button>
@@ -68,7 +69,7 @@
             <path d="M20.625 37.25L4 20.625M4 20.625L20.625 4M4 20.625H37.5" stroke="black" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
 
-        <p class="labirint_text">username</p>
+        <p class="labirint_text username">username</p>
 
         <form method="POST" class="container__data_name">
             <button id="continue_game_btn" class="play_submit" type="button"><p class="b_text">Продолжить игру</p>  </button>
@@ -83,13 +84,13 @@
             <path d="M20.625 37.25L4 20.625M4 20.625L20.625 4M4 20.625H37.5" stroke="black" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
 
-        <p class="labirint_text">username</p>
+        <p class="labirint_text username">username</p>
 
-        <form method="POST" class="container__create_name">
+        <form method="POST" name="choose_count_opponents" class="container__create_name">
             <p class="choose_count_opponents__text">Игроков:</p>
 
             <div class="form_radio_btn radio_margin">
-                <input id="radio-3" type="radio" name="radio" value="3">
+                <input id="radio-3" type="radio" name="radio" value="3" checked>
                 <label for="radio-3">3</label>
             </div>
 
@@ -99,10 +100,10 @@
             </div>
         </form>
 
-        <form method="POST" class="container__create_name">
+        <form method="POST" name="choose_private_room" class="container__create_name">
             <p class="choose_count_opponents__text">Приватная:</p>
             <div class="form_radio_btn">
-                <input id="radio-0" type="radio" name="radio" value="0">
+                <input id="radio-0" type="radio" name="radio" value="0" checked>
                 <label for="radio-0">да</label>
             </div>
 
@@ -112,6 +113,13 @@
             </div>
         </form>
 
+        <button id="create_game" class="play_submit" type="button"><p class="b_text">Создать игру</p>  </button>
+    </div>
+
+    <div id="show_code" class="container">
+        <svg class="arrow" id="arrow5" width="41" height="41" viewbox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.625 37.25L4 20.625M4 20.625L20.625 4M4 20.625H37.5" stroke="black" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
         <form class="your_code" method="post">
             <p class="your_code__text">fhk39dns4uvnsl5is20fksmcirhsnfirdg</p>
         </form>
@@ -155,6 +163,7 @@
     </div>
 
     <script type="text/javascript" src="js/registration.js"></script>
+    <script type="text/javascript" src="js/connection.js"></script>
 </body>
 
 </html>

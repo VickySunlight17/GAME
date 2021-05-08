@@ -54,6 +54,10 @@ body {
     display: none;
 }
 
+#show_code {
+    display: none;
+}
+
 .container__data_name {
     font-family: 'Roboto', sans-serif;
     display: flex;

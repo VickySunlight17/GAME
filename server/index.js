@@ -24,12 +24,17 @@ app.use(express.urlencoded({ extended: false }));
 app.use('/', express.static('client'));
 
 app.post('/', function(request, response) {
+
     if (!request.body)
         return response.sendStatus(400);
+
     console.log(" Наши данные: " + JSON.stringify(request.body));
+
+
     let queryProcedure = `CALL ${request.body.pname}("${request.body.p1}", "${request.body.p2}")`;
     let queryProcedure3 = `CALL ${request.body.pname}("${request.body.p1}", "${request.body.p2}", "${request.body.p3}")`;
     let queryProcedure4 = `CALL ${request.body.pname}("${request.body.p1}", "${request.body.p2}", "${request.body.p3}", "${request.body.p4}")`;
+
     if (request.body.p4 != null) {
         connection.query(queryProcedure4, (err, res) => {
             if (err)

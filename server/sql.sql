@@ -55,23 +55,23 @@ DECLARE x INT DEFAULT 0;
 	IF EXISTS (SELECT * FROM players WHERE login=log AND password=pw)
 	     THEN
          IF EXISTS (SELECT * FROM players WHERE login=log and game_id=NULL)
-                    THEN
+            THEN
          
-         START TRANSACTION;
-    	INSERT INTO game(game_id, md, size, public, arsenal, robbers, treasure,	exitCell, directionExit) VALUES(NULL, NULL, number, pblc, NULL, NULL, NULL, NULL,NULL);
-       SET x= last_insert_id();
+                START TRANSACTION;
+    	        INSERT INTO game(game_id, md, size, public, arsenal, robbers, treasure,	exitCell, directionExit, random) VALUES(NULL, NULL, number, pblc, NULL, NULL, NULL, NULL, NULL, rand()*1000000);
+                SET x= last_insert_id();
 
- UPDATE game SET md=MD5(game_id) WHERE game_id=x; 
-     UPDATE players SET game_id=x WHERE login=log ;
-   COMMIT;
+                UPDATE game SET md=MD5(game_id) WHERE game_id=x; 
+                UPDATE players SET game_id=x WHERE login=log ;
+                COMMIT;
 -- UPDATE players SET inGame=1 WHERE login=log;
 
- SELECT md FROM game WHERE game_id=x ;   
+                SELECT md FROM game WHERE game_id=x ;   
 
-ELSE SELECT "Error! У пользователя уже есть game_id и он в игре."   as err;  
-  END IF;
-       ELSE SELECT "Error! неправильный логин/пароль"   as err;     
-	    END IF;
+        ELSE SELECT "Error! У пользователя уже есть game_id и он в игре."   as err;  
+        END IF;
+    ELSE SELECT "Error! неправильный логин/пароль"   as err;     
+	END IF;
  
    END//
 DELIMITER ;

@@ -30,10 +30,12 @@ app.post('/', function(request, response) {
 
     console.log(" Наши данные: " + JSON.stringify(request.body));
 
-
+    let queryProcedure1 = `CALL ${request.body.pname}()`;
     let queryProcedure = `CALL ${request.body.pname}("${request.body.p1}", "${request.body.p2}")`;
     let queryProcedure3 = `CALL ${request.body.pname}("${request.body.p1}", "${request.body.p2}", "${request.body.p3}")`;
     let queryProcedure4 = `CALL ${request.body.pname}("${request.body.p1}", "${request.body.p2}", "${request.body.p3}", "${request.body.p4}")`;
+
+
 
     if (request.body.p4 != null) {
         connection.query(queryProcedure4, (err, res) => {
@@ -49,8 +51,15 @@ app.post('/', function(request, response) {
             console.log(res);
             response.send(res[0]);
         });
-    } else {
+    } else if (request.body.p2 != null) {
         connection.query(queryProcedure, (err, res) => {
+            if (err)
+                throw err;
+            console.log(res);
+            response.send(res[0]);
+        });
+    } else if (request.body.p1 == null) {
+        connection.query(queryProcedure1, (err, res) => {
             if (err)
                 throw err;
             console.log(res);

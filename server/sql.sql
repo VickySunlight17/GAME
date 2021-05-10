@@ -98,7 +98,9 @@ IF id is not NULL -- если id не ноль (такая игра есть)
       IF ((SELECT size FROM game WHERE game_id=id)=(SELECT count(*) FROM players WHERE game_id=id))
         THEN 
         	CALL createField(id);
-            INSERT INTO moves VALUES ((SELECT login FROM players WHERE game_id=id and loginNext=(SELECT min(loginNext) FROM players WHERE game_id=id)), CURRENT_TIMESTAMP); 
+            INSERT INTO moves VALUES ((SELECT login FROM players WHERE game_id=id and indexNumber=(SELECT min(indexNumber) FROM players WHERE game_id=id)), CURRENT_TIMESTAMP); 
+
+            SELECT login, COUNT(*) as count FROM players WHERE game_id=id;
             
             COMMIT;
         ELSE
@@ -201,23 +203,35 @@ DELIMITER ;
 DELIMITER $$
 CREATE PROCEDURE showPublicGames()
 BEGIN
-	IF EXISTS (SELECT * FROM game WHERE public=1)     
+	IF EXISTS (select * from game where public=1)     
         THEN
                                                   
-            SELECT md, size, (SELECT count(*) FROM players WHERE game.game_id=players.game_id) as have_players FROM game WHERE public=1 and size>(SELECT count(*) FROM players WHERE game.game_id=players.game_id) GROUP BY game_id;                       
+            SELECT md, size, (select count(*) from players where game.game_id=players.game_id) as have_players, (select login from players WHERE game_id=game.game_id limit 1) FROM game WHERE public=1 and size>(select count(*) from players where game.game_id=players.game_id) GROUP BY game_id;                       
     ELSE
-    SELECT "Sorry! Публичных игр пока нет! Создай свою с помощью createGame() (если ты вошел в систему, иначе войди с помощью createUser())"  as err;
+    SELECT "Sorry! Публичных игр пока нет! Создай свою с помощью createGame() (если ты вошел в систему, иначе войди с помощью createUser())" as err;
     END IF;
 END $$
 DELIMITER ;
 
--- функция удлления игры
+-- функция удаления игры
 
 DELIMITER //
 CREATE  PROCEDURE endGame( g_id, rand_num)
 BEGIN 
 
+IF random_num=(SELECT random FROM game WHERE game_id=id)
+    THEN -- если рандомное число совпадает с тем, что в игре
+
+        DELETE FROM moves WHERE login=log; 
+        UPDATE players SET lives=null, cement=null, patron=null, grenade=null, palce=null WHERE game_id=g_id;
+        DELETE FROM game WHERE game_id=g_id;
  
+        SELECT "Спасибо за игру!" as endgame ;
+ 
+ELSE 
+    SELECT "Данную функцию нельзя вызвать просто так! (endGame)" as err;
+END IF;
+            
 END //
 DELIMITER ;
 
@@ -249,8 +263,8 @@ BEGIN
                    arsenal=(SELECT num FROM result WHERE login="arsenal"), 
                    treasure=(SELECT num FROM result WHERE login="treasure") WHERE game_id=id_of_game; -- добавляем все наши данные в игру
                    
-                    UPDATE game SET exitCell=(SELECT wall FROM externalwalls ORDER BY rand() LIMIT 1) WHERE game_id=3;
-                    UPDATE game SET directionExit=(SELECT directionWall FROM externalwalls, game WHERE wall=exitCell limit 1) WHERE game_id=3;
+                    UPDATE game SET exitCell=(SELECT wall FROM externalwalls ORDER BY rand() LIMIT 1) WHERE game_id=id_of_game;
+                    UPDATE game SET directionExit=(SELECT directionWall FROM externalwalls, game WHERE wall=exitCell limit 1) WHERE game_id=id_of_game;
  
       ELSE SELECT "Error! Недостаточное кол-во игроков для создания поля."   as err;
      END IF; 

@@ -1,3 +1,4 @@
+// объект, в который помещаем данные для отправки
 let fd = {
         pname: "createUser",
         p1: document.regname.regname.value,
@@ -6,21 +7,79 @@ let fd = {
         p4: null
     }
     // console.log(fd);
+
+function connectGame(params) {
+    alert('it works!');
+
+    fd.pname = "connectGame";
+    fd.p1 = document.regname.regname.value;
+    fd.p2 = document.regname.regpw.value;
+    fd.p3 = document.container__list_of_games.querySelector('.list_of_games__btns').value;
+    console.log(fd.p3);
+    fd.p4 = null;
+
+    // sendData(fd);
+    document.querySelector('#game_options').style.display = "none";
+    document.querySelector('#show_code').style.display = "flex";
+}
+// показываем публичные игры, которые есть
+function showPublicGames(data) {
+    console.log(data.length);
+    if (data[0].err) {
+        document.querySelector('.container__list_of_games__no_games').style.display = "flex";
+    } else {
+        for (let i = 0; i < data.length; i++) {
+            let game = document.createElement('button');
+            let creator = document.createElement('p');
+            let size = document.createElement('p');
+            let have_players = document.createElement('p');
+
+            game.className = "play_submit list_of_games__btns";
+            game.value = data[i].md;
+            game.type = "button";
+            game.onclick = "connectGame()";
+            game.id = i;
+
+            creator.className = "b_text";
+            size.className = "b_text";
+            have_players.className = "b_text";
+
+            creator.innerText = data[i].creator;
+            game.insertAdjacentElement("beforeend", creator);
+
+            size.innerText = data[i].size;
+            game.insertAdjacentElement("beforeend", size);
+
+            have_players.innerText = data[i].have_players;
+            game.insertAdjacentElement("beforeend", have_players);
+
+            document.querySelector('.container__list_of_games').append(game);
+        }
+    }
+
+
+}
+
+// выводит пришедший код игрока на экран
 function showCode(code) {
     // console.log(code);
     document.querySelector('.your_code__text').innerText = code;
 }
 
+// функция, которая смотрит, что за ответ пришел и решает, что с ним делать
 function showAlert(data) {
-    // let res = JSON.parse(p.target.response);;
-    // console.log(JSON.stringify(res));
+
     console.log("showAlert " + JSON.stringify(data));
-    console.log(data[0].err);
+    console.log(data[0].have_players);
+
+    // смотрим, какие значения есть в ответе по нему ориентируемся, что нужно показать
     if (data[0].err != null) {
         alert(JSON.stringify(data));
-    }
-    if (data[0].md) {
+    } else if (data[0].md) {
         showCode(data[0].md);
+    }
+    if (data[0].have_players != null) {
+        showPublicGames(data);
     }
     // alert(JSON.stringify(p));
 }
@@ -63,6 +122,33 @@ document.querySelector('#create_game').onclick = function() {
     document.querySelector('#show_code').style.display = "flex";
 }
 
+// добавление пользователя в игру 
+document.querySelector('#start_game').onclick = function() {
+    fd.pname = "connectGame";
+    fd.p1 = document.regname.regname.value;
+    fd.p2 = document.regname.regpw.value;
+    fd.p3 = document.enter_code_text.enter_code_text.value;
+    fd.p4 = null;
+
+    sendData(fd);
+    document.querySelector('#enter_code').style.display = "none";
+    document.querySelector('.game_wrapper').style.display = "flex";
+}
+
+// поиск публичных игр
+document.querySelector('#find_game_btn').onclick = function() {
+    fd.pname = "showPublicGames";
+    fd.p1 = null;
+    fd.p2 = null;
+    fd.p3 = null;
+    fd.p4 = null;
+
+    sendData(fd);
+    document.querySelector('#choose_btn').style.display = "none";
+    document.querySelector('#list_of_games').style.display = "flex";
+}
+
+// отправляет данные на сервер
 function sendData(fd) {
     fetch("http://localhost:3000", {
             method: 'POST',

@@ -1,0 +1,446 @@
+html {
+    height: 100%;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    /* width: 100%; */
+    overflow: hidden;
+    /* position: fixed; */
+    background-size: cover;
+    background: linear-gradient(135.66deg, #FFD540 0%, #FFEBA3 97.56%), linear-gradient(111.76deg, #46FFE9 5.78%, #46FFE9 99.76%);
+}
+
+
+/* ______________________________контейнер с сеткой для игры */
+
+.game_wrapper {
+    width: 100%;
+    display: none;
+    height: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.actions_panel1 {
+    /* border: 1px solid rgb(163, 39, 39); */
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    border: thistle;
+}
+
+.field_center {
+    width: 40%;
+}
+
+
+/* _______________________________________ИГРОВОЕ
+ПОЛЕ_______________________________ */
+
+.game_field {
+    padding-top: 5%;
+    width: 505px;
+    height: 505px;
+    border-radius: 1px white;
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: column;
+}
+
+.game_field__row {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.game_field__horisontal_walls {
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: row;
+}
+
+.game_field__row__vertical_wall {
+    width: 3px;
+    height: 95px;
+    background: #A44F00;
+    display: flex;
+}
+
+.game_field__horisontal_wall {
+    width: 98.6px;
+    height: 3px;
+    background: #A44F00;
+}
+
+.game_field__row__cell {
+    position: relative;
+    display: flex;
+    width: 95px;
+    height: 95px;
+    background: whitesmoke;
+    border: 1px solid #ffe39d;
+    /*#624600; */
+    box-sizing: border-box;
+    box-shadow: 20px 30px 29px -10px rgba(255, 203, 18, 0.11), inset -5px -5px 4px rgba(255, 203, 18, 0.1), inset 5px 5px 15px rgba(249, 199, 24, 0.1);
+}
+
+.game_field__row__cell:hover .show_things {
+    z-index: 100;
+    cursor: pointer;
+    display: flex;
+}
+
+
+/*___________________________ ВСПЛЫВАЮЩЕЕ МЕНЮ У ИГРОКА __________________________*/
+
+.show_things {
+    position: absolute;
+    left: 10%;
+    top: 10%;
+    width: 270px;
+    height: 330px;
+    background: linear-gradient(93.93deg, #0B8700 3.8%, #037E00 96.77%);
+    border: 1px solid #00B35D;
+    box-sizing: border-box;
+    border-radius: 25px;
+    /* border: 1px solid rgba(98, 41, 0, 0.92); */
+    box-sizing: border-box;
+    /* box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25); */
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.show_things__list {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.show_things__text {
+    margin-top: 15px;
+    display: flex;
+    width: fit-content;
+    font-family: Russo One;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 43px;
+    color: #FFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.show_things__item {
+    font-family: Russo One;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 29px;
+    color: #FFF;
+    display: flex;
+    width: 100%;
+    /* margin-right: 10px; */
+}
+
+.show_things__item input[type=checkbox] {
+    display: none;
+}
+
+.show_things__item label {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 0px 15px;
+    line-height: 34px;
+    border: 1px solid rgba(98, 41, 0, 0.92);
+    border-radius: 24px;
+    user-select: none;
+}
+
+
+/* Checked */
+
+.show_things__item input[type=checkbox]:checked+label {
+    background: #fda522;
+    color: #550500;
+}
+
+
+/* Hover */
+
+.show_things__item label:hover {
+    color: #550500;
+}
+
+
+/* Disabled */
+
+.show_things__item input[type=checkbox]:disabled+label {
+    background: #efefef;
+    color: #666;
+}
+
+.show_thing__image {
+    height: 26px;
+    width: 26px;
+    filter: drop-shadow(1px 2px 1px #382C00);
+}
+
+
+/* _______________________________КНОПКИ ДЕЙСТВИЙ ИГРОКА______________________ */
+
+.actions {
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.actions__text {
+    font-family: Russo One;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 43px;
+    color: rgba(142, 60, 0, 0.92);
+    margin-bottom: 7%;
+    margin-top: 10%;
+}
+
+.actions__btn {
+    width: 95%;
+    height: 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 0px;
+    outline: none;
+    cursor: pointer;
+    align-items: center;
+    font-family: Russo One;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 29px;
+    color: #FFF;
+    background: linear-gradient(93.93deg, #0B8700 3.8%, #037E00 96.77%);
+    border: 1px solid #00B35D;
+    box-sizing: border-box;
+    border-radius: 25px;
+}
+
+.actions__btn:hover {
+    background: #085a00;
+}
+
+.actions__btn:active {
+    background: #064700;
+    outline: none;
+}
+
+.actions__btn__container_img {
+    width: 15%;
+}
+
+.actions__btn__container_text {
+    width: 80%;
+    display: flex;
+    justify-content: left;
+}
+
+.actions__btn__img {
+    /* width: 40px; */
+    height: 24px;
+    width: 24px;
+}
+
+
+/* _________________________НАПРАВЛЕНИЕ ХОДА ИГРОКА______________________________________
+*/
+
+.direction__list {
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.direction__item {
+    font-family: Russo One;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 29px;
+    color: #FFF;
+    display: flex;
+    width: 95%;
+    /* margin-right: 10px; */
+}
+
+.direction__item input[type=radio] {
+    display: none;
+}
+
+.direction__item label {
+    height: 54px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    display: flex;
+    cursor: pointer;
+    padding: 0px 15px;
+    line-height: 34px;
+    background: linear-gradient(93.93deg, #0B8700 3.8%, #037E00 96.77%);
+    border: 1px solid #00B35D;
+    box-sizing: border-box;
+    border-radius: 25px;
+    /* border-radius: 6px; */
+    user-select: none;
+}
+
+
+/* Checked */
+
+.direction__item input[type=radio]:checked+label {
+    background: #064700;
+}
+
+
+/* Hover */
+
+.direction__item label:hover {
+    background: #085a00;
+}
+
+
+/* Disabled */
+
+.direction__item input[type=radio]:disabled+label {
+    background: #efefef;
+    color: #666;
+}
+
+
+/* ___________________________________ЗАПАСЫ ИГРОКА_________________
+*/
+
+.stock {
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+    width: 350px;
+    height: 360px;
+    background: linear-gradient(93.93deg, #0B8700 3.8%, #037E00 96.77%);
+    border: 1px solid #00B35D;
+    box-sizing: border-box;
+    border-radius: 25px;
+    margin-bottom: 36%;
+}
+
+.stock__text {
+    font-family: Russo One;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 43px;
+    color: #FFF;
+    display: flex;
+    justify-content: center;
+    margin-top: 7%;
+    margin-bottom: 5%;
+}
+
+.stock__item {
+    height: 65px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 5%;
+}
+
+.stock__item__container_img {
+    width: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 1%;
+    /* visibility: hidden; */
+}
+
+.stock__item__img {
+    width: 45px;
+}
+
+.stock__item__text {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 40%;
+    font-family: Russo One;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 29px;
+    color: #FFF;
+}
+
+
+/*____________________________________ ИСТОРИЯ ХОДОВ ИГРОКА ______________________- */
+
+.history_of_moves__text {
+    font-family: Russo One;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 43px;
+    color: rgba(142, 60, 0, 0.92);
+    /* margin-top: ; */
+}
+
+.history_of_moves__answers {
+    width: 530px;
+    height: 110px;
+    overflow: auto;
+    border: 1px solid rgba(99, 99, 99, 0.82);
+    box-sizing: border-box;
+    border-radius: 5px;
+    background: #FFFFFF;
+}
+
+.history_of_moves__answers__text {
+    margin-top: 5px;
+}
+
+.history_of_moves__answers__player {
+    color: rgb(209, 31, 0);
+}
+
+.players_name_wrapper {
+    margin-top: 5%;
+    font-family: Russo One;
+    font-style: normal;
+    font-weight: normal;
+    color: #612D00;
+}
+
+.players_name_wrapper__text {
+    font-size: 36px;
+    line-height: 43px;
+}
+
+.players_name_wrapper__player {
+    font-size: 24px;
+    line-height: 29px;
+}
